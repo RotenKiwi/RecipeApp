@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'SplashScreen.dart';
+import 'Homescreen.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: SplashScreen(),
+    home: HomeScreen(),
   ));
 }
 
