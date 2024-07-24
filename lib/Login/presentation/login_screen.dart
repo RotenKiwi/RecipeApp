@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:recipe/Components/firebase/firebase_helper.dart';
 import 'package:recipe/Components/presentation/text_field.dart';
 import 'package:recipe/constants.dart';
 
@@ -70,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       RoundedButton(
                           text: 'Continue',
-                          press: () {},
+                          press: () {
+                            signIn(emailTextController.text, passwordTextController.text);
+                          },
                           color: const Color(0xff7e5e12),
                           textColor: Colors.white,
                           length: 0.9),

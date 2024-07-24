@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1026932567643",
+    "project_id": "recipe-ketho",
+    "storage_bucket": "recipe-ketho.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026932567643:android:9954cbb2b866dce781597e",
+        "android_client_info": {
+          "package_name": "com.example.recipe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9GaMWlpdRx241gj8A-bIP0AT-TQm-cb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
