@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:recipe/Components/presentation/text_field.dart';
+import 'package:recipe/constants.dart';
 
 import '../../Components/presentation/rounded_button.dart';
 
@@ -49,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(20.0)),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Column(
@@ -70,37 +71,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       RoundedButton(
                           text: 'Continue',
                           press: () {},
-                          color: Color(0xff7e5e12),
+                          color: const Color(0xff7e5e12),
                           textColor: Colors.white,
                           length: 0.9),
+                      const SizedBox(height: 36,),
                       Row(
                         children: [
-                          const Text(
+                          Text(
                             "  Don't Have an Account?   ",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Breath',
-                              decoration: TextDecoration.none,
-                              color: Colors.white,
-                            ),
+                            style: mediumContent(Colors.white),
                             textAlign: TextAlign.start,
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: const Text(
+                            child: Text(
                               "Sign Up",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Breath',
-                                decoration: TextDecoration.none,
-                                color: Colors.greenAccent,
-                              ),
+                              style: mediumContent(Colors.greenAccent),
                               textAlign: TextAlign.start,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                     ],
@@ -109,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
         ]),
