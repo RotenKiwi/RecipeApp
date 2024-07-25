@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:recipe/Homescreen/presentation/homescreen.dart';
 import 'firebase_options.dart';
 
 import 'package:recipe/Login&Register/presentation/login_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
