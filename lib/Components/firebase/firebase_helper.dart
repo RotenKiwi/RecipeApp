@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
+FirebaseFirestore db = FirebaseFirestore.instance;
+late User user;
 
 Future<bool> signIn(String emailAddress, String password) async{
   try {
@@ -8,6 +11,7 @@ Future<bool> signIn(String emailAddress, String password) async{
         email: emailAddress,
         password: password
     );
+    user = auth.currentUser!;
     print('Logged In');
     return true;
   } on FirebaseAuthException catch (e) {
@@ -22,11 +26,12 @@ Future<bool> signIn(String emailAddress, String password) async{
 
 Future<bool> signUp(String emailAddress, String password) async {
   try {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    await auth.createUserWithEmailAndPassword(
       email: emailAddress,
       password: password,
     );
-    print('Account created');
+    user = auth.currentUser!;
+    print('Account created, UserId: '+ user.uid);
     return true;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
@@ -39,4 +44,15 @@ Future<bool> signUp(String emailAddress, String password) async {
     print(e);
     return false;
   }
+}
+
+Future<bool> createUser(String username) async{
+  try {
+    await db.collection('users').doc(user.uid).set({'username':username});
+    return true;
+  } on Exception catch (e) {
+    print(e);
+    return false;
+  }
+
 }

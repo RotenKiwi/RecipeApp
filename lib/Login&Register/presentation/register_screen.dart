@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:recipe/Components/firebase/firebase_helper.dart';
 import 'package:recipe/Login&Register/components/background_widget.dart';
 import 'package:recipe/Login&Register/components/blur_card.dart';
-import 'package:recipe/Login&Register/presentation/login_screen.dart';
 import 'package:recipe/constants.dart';
 
 import '../../Components/presentation/rounded_button.dart';
@@ -17,6 +16,7 @@ class RegisterScreen extends StatefulWidget {
 
 TextEditingController emailTextController = TextEditingController();
 TextEditingController passwordTextController = TextEditingController();
+TextEditingController usernameTextController = TextEditingController();
 
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
@@ -26,13 +26,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Spacer(flex: 3),
+            const Spacer(flex: 3),
             bigTitle('  SignUp', Colors.white),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: BlurCard(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Column(
                     children: [
                       MyTextField(
@@ -41,14 +41,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: emailTextController,
                       ),
                       MyTextField(
+                        text: 'Username',
+                        isPassword: false,
+                        controller: usernameTextController,
+                      ),
+                      MyTextField(
                         text: 'Password',
                         isPassword: true,
                         controller: passwordTextController,
                       ),
                       RoundedButton(
                         text: 'SignUp',
-                        press: () {
-                          signUp(emailTextController.text, passwordTextController.text);
+                        press: () async{
+                          await signUp(emailTextController.text, passwordTextController.text);
+                          createUser(usernameTextController.text);
                         },
                         color: const Color(0xff7e5e12),
                         textColor: Colors.white,
@@ -60,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-            Spacer(flex: 1)
+            const Spacer(flex: 1)
           ],
         ),
       ),

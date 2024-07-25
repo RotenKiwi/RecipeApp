@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/Components/firebase/firebase_helper.dart';
 import 'package:recipe/Components/presentation/text_field.dart';
+import 'package:recipe/Homescreen/presentation/homescreen.dart';
 import 'package:recipe/Login&Register/presentation/register_screen.dart';
 import 'package:recipe/constants.dart';
 
@@ -47,9 +48,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       RoundedButton(
                         text: 'Continue',
-                        press: () {
-                          signIn(emailTextController.text,
-                              passwordTextController.text);
+                        press: () async {
+                          if (await signIn(emailTextController.text,
+                              passwordTextController.text)) {
+                            Navigator.of(context).push(createRoute(
+                                (context, animation, secondaryAnimation) =>
+                                    const HomeScreen()));
+                          } else {
+                            print('ERROR: Cant Login');
+                          }
                         },
                         color: const Color(0xff7e5e12),
                         textColor: Colors.white,
@@ -62,7 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               '    Don\'t Have an Account?', Colors.white),
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).push(_createRoute());
+                              Navigator.of(context).push(createRoute(
+                                (context, animation, secondaryAnimation) =>
+                                    const RegisterScreen(),
+                              ));
                             },
                             child: mediumContent('Sign Up', Colors.greenAccent),
                           ),
@@ -80,22 +90,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const RegisterScreen(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(1.0, 0.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
 }
