@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/Components/firebase/firebase_helper.dart';
 import 'package:recipe/Components/presentation/text_field.dart';
+import 'package:recipe/Login&Register/presentation/register_screen.dart';
 import 'package:recipe/constants.dart';
 
 import '../../Components/presentation/rounded_button.dart';
@@ -60,7 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           mediumContent(
                               '    Don\'t Have an Account?', Colors.white),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(_createRoute());
+                            },
                             child: mediumContent('Sign Up', Colors.greenAccent),
                           ),
                         ],
@@ -77,4 +80,22 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const RegisterScreen(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
