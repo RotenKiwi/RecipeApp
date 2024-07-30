@@ -22,11 +22,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: BackgroundWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(flex: 3),
+            const Spacer(flex: 1),
             bigTitle('  SignUp', Colors.white),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -55,6 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         press: () async{
                           await signUp(emailTextController.text, passwordTextController.text);
                           createUser(usernameTextController.text);
+                          Navigator.pop(context);
                         },
                         color: const Color(0xff7e5e12),
                         textColor: Colors.white,
@@ -66,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-            const Spacer(flex: 1)
+            const Spacer(flex: 3)
           ],
         ),
       ),

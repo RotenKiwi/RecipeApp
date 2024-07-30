@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBzpKmOVB-1EhNvTfOUCdF8jJULMmwUjx0</string>
+	<string>AIzaSyBGGrFpvJDnPIowXk9NLJAqG5tYCFmlxO8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1026932567643</string>
+	<string>393311794218</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.recipe</string>
 	<key>PROJECT_ID</key>
-	<string>recipe-ketho</string>
+	<string>recipe-831ec</string>
 	<key>STORAGE_BUCKET</key>
-	<string>recipe-ketho.appspot.com</string>
+	<string>recipe-831ec.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1026932567643:ios:205115270602733581597e</string>
+	<string>1:393311794218:ios:eccaad1d7069a2a4ecbf53</string>
 </dict>
 </plist>

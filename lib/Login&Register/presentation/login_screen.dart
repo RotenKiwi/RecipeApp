@@ -23,11 +23,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: BackgroundWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(flex: 3),
+            const Spacer(flex: 1),
             bigTitle('  Welcome!', Colors.white),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -84,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            const Spacer(flex: 1),
+            const Spacer(flex: 3),
           ],
         ),
       ),

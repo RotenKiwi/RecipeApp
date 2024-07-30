@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD9GaMWlpdRx241gj8A-bIP0AT-TQm-cb4',
-    appId: '1:1026932567643:android:9954cbb2b866dce781597e',
-    messagingSenderId: '1026932567643',
-    projectId: 'recipe-ketho',
-    storageBucket: 'recipe-ketho.appspot.com',
+    apiKey: 'AIzaSyArMgl3qAwTF4NdXit9Qfd5YKfueheL9jI',
+    appId: '1:393311794218:android:a5dc4b33f324d4baecbf53',
+    messagingSenderId: '393311794218',
+    projectId: 'recipe-831ec',
+    storageBucket: 'recipe-831ec.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBzpKmOVB-1EhNvTfOUCdF8jJULMmwUjx0',
-    appId: '1:1026932567643:ios:205115270602733581597e',
-    messagingSenderId: '1026932567643',
-    projectId: 'recipe-ketho',
-    storageBucket: 'recipe-ketho.appspot.com',
+    apiKey: 'AIzaSyBGGrFpvJDnPIowXk9NLJAqG5tYCFmlxO8',
+    appId: '1:393311794218:ios:eccaad1d7069a2a4ecbf53',
+    messagingSenderId: '393311794218',
+    projectId: 'recipe-831ec',
+    storageBucket: 'recipe-831ec.appspot.com',
     iosBundleId: 'com.example.recipe',
   );
 
