@@ -28,43 +28,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(flex: 1),
-            bigTitle('  SignUp', Colors.white),
+            Center(child: bigTitle('Foodybite', Colors.white)),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: BlurCard(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      MyTextField(
-                        text: 'Email',
-                        isPassword: false,
-                        controller: emailTextController,
-                      ),
-                      MyTextField(
-                        text: 'Username',
-                        isPassword: false,
-                        controller: usernameTextController,
-                      ),
-                      MyTextField(
-                        text: 'Password',
-                        isPassword: true,
-                        controller: passwordTextController,
-                      ),
-                      RoundedButton(
-                        text: 'SignUp',
-                        press: () async{
-                          await signUp(emailTextController.text, passwordTextController.text);
-                          createUser(usernameTextController.text);
-                          Navigator.pop(context);
-                        },
-                        color: const Color(0xff7e5e12),
-                        textColor: Colors.white,
-                        length: 0.9,
-                      ),
-                      const SizedBox(height: 36),
-                    ],
-                  ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  children: [
+                    MyTextField(
+                      text: 'Email',
+                      isPassword: false,
+                      controller: emailTextController,
+                    ),
+                    MyTextField(
+                      text: 'Username',
+                      isPassword: false,
+                      controller: usernameTextController,
+                    ),
+                    MyTextField(
+                      text: 'Password',
+                      isPassword: true,
+                      controller: passwordTextController,
+                    ),
+                    RoundedButton(
+                      text: 'SignUp',
+                      press: () async{
+                        await signUp(emailTextController.text, passwordTextController.text);
+                        createUser(usernameTextController.text);
+                        Navigator.pop(context);
+                      },
+                      color: Colors.blueAccent,
+                      textColor: Colors.white,
+                      length: 0.8,
+                    ),
+                    const SizedBox(height: 36),
+                  ],
                 ),
               ),
             ),

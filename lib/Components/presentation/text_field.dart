@@ -18,14 +18,18 @@ class MyTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
         ),
         obscureText: isPassword,
         //obscuringCharacter: '%',
         decoration: InputDecoration(
+          filled: true,
+            fillColor: Color(0x80ffffff),
             hintText: text,
             hintStyle: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               //fontWeight: FontWeight.w500,
               fontStyle: FontStyle.italic,
               fontSize: 25.0,

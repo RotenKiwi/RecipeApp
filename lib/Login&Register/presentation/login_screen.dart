@@ -29,59 +29,57 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(flex: 1),
-            bigTitle('  Welcome!', Colors.white),
+            Center(child: bigTitle( 'Foodybite', Colors.white)),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: BlurCard(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      MyTextField(
-                        text: 'Email',
-                        isPassword: false,
-                        controller: emailTextController,
-                      ),
-                      MyTextField(
-                        text: 'Password',
-                        isPassword: true,
-                        controller: passwordTextController,
-                      ),
-                      RoundedButton(
-                        text: 'Continue',
-                        press: () async {
-                          if (await signIn(emailTextController.text,
-                              passwordTextController.text)) {
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  children: [
+                    MyTextField(
+                      text: 'Email',
+                      isPassword: false,
+                      controller: emailTextController,
+                    ),
+                    MyTextField(
+                      text: 'Password',
+                      isPassword: true,
+                      controller: passwordTextController,
+                    ),
+                    RoundedButton(
+                      text: 'Continue',
+                      press: () async {
+                        if (await signIn(emailTextController.text,
+                            passwordTextController.text)) {
+                          Navigator.of(context).push(createRoute(
+                              (context, animation, secondaryAnimation) =>
+                                  const HomeScreen()));
+                        } else {
+                          print('ERROR: Cant Login');
+                        }
+                      },
+                      color: Colors.blueAccent,
+                      textColor: Colors.white,
+                      length: 0.8,
+                    ),
+                    const SizedBox(height: 36),
+                    Row(
+                      children: [
+                        mediumContent(
+                            '    Don\'t Have an Account?', Colors.white),
+                        TextButton(
+                          onPressed: () {
                             Navigator.of(context).push(createRoute(
-                                (context, animation, secondaryAnimation) =>
-                                    const HomeScreen()));
-                          } else {
-                            print('ERROR: Cant Login');
-                          }
-                        },
-                        color: const Color(0xff7e5e12),
-                        textColor: Colors.white,
-                        length: 0.9,
-                      ),
-                      const SizedBox(height: 36),
-                      Row(
-                        children: [
-                          mediumContent(
-                              '    Don\'t Have an Account?', Colors.white),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).push(createRoute(
-                                (context, animation, secondaryAnimation) =>
-                                    const RegisterScreen(),
-                              ));
-                            },
-                            child: mediumContent('Sign Up', Colors.greenAccent),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+                              (context, animation, secondaryAnimation) =>
+                                  const RegisterScreen(),
+                            ));
+                          },
+                          child: mediumContent('Sign Up', Colors.greenAccent),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                  ],
                 ),
               ),
             ),

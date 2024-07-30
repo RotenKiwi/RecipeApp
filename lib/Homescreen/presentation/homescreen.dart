@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:recipe/constants.dart';
 
+import '../../AboutUs/presentation/about_us_page.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -34,8 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           mediumContent('New Dish to Cook today?', Colors.grey),
                         ],
                       ),
-                      const CircleAvatar(
-                        radius: 36.0,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutUsPage()));
+                        },
+                        child: const CircleAvatar(
+                          radius: 36.0,
+                        ),
                       ),
                       //TODO: Add User image here and on click move to profile page
                     ],
