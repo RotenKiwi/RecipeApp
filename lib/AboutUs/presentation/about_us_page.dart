@@ -7,6 +7,18 @@ class AboutUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: GestureDetector(
+        onTap: (){Navigator.of(context).pop();},
+        child: Container(
+          padding: EdgeInsets.all(12.0),
+          child: Icon(Icons.arrow_back_ios_new_outlined),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            color: Colors.white,
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: LayoutBuilder(
         builder: (context, constraint) {
           double h = constraint.maxHeight;

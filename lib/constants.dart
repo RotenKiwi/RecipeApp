@@ -7,7 +7,6 @@ Text primaryTitle(String text, Color textColor) {
   return Text(
     text,
     style: TextStyle(
-      fontFamily: 'Breath',
       fontWeight: FontWeight.bold,
       fontSize: 28,
       color: textColor,
@@ -23,7 +22,6 @@ Text mediumContent(
     text,
     style: TextStyle(
         fontSize: 20,
-        fontFamily: 'Breath',
         decoration: TextDecoration.none,
         color: textColor),
   );
@@ -34,7 +32,6 @@ Text bigTitle(String text, Color textColor) {
     text,
     style: TextStyle(
       fontSize: 65,
-      fontFamily: 'Breath',
       decoration: TextDecoration.none,
       fontWeight: FontWeight.w600,
       color: textColor,

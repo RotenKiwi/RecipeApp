@@ -23,13 +23,15 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: BackgroundWidget(
+        login: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(flex: 1),
-            Center(child: bigTitle( 'Foodybite', Colors.white)),
+            const Spacer(flex: 3),
+            Center(child: bigTitle('Foodybite', Colors.white)),
+            const Spacer(flex: 4,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Padding(
@@ -37,11 +39,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     MyTextField(
+                      prefixIcon: Icon(Icons.email_outlined),
                       text: 'Email',
                       isPassword: false,
                       controller: emailTextController,
                     ),
                     MyTextField(
+                      prefixIcon: Icon(Icons.lock),
                       text: 'Password',
                       isPassword: true,
                       controller: passwordTextController,
@@ -83,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            const Spacer(flex: 3),
+            const Spacer(flex: 1),
           ],
         ),
       ),

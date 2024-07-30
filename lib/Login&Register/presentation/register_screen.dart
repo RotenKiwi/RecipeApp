@@ -22,13 +22,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: BackgroundWidget(
+        login: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(flex: 1),
+            const Spacer(flex: 3),
             Center(child: bigTitle('Foodybite', Colors.white)),
+            const Spacer(flex: 1,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Padding(
@@ -36,22 +38,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   children: [
                     MyTextField(
+                      prefixIcon: Icon(Icons.email_outlined),
                       text: 'Email',
                       isPassword: false,
                       controller: emailTextController,
                     ),
                     MyTextField(
+                      prefixIcon: Icon(Icons.person),
                       text: 'Username',
                       isPassword: false,
                       controller: usernameTextController,
                     ),
                     MyTextField(
+                      prefixIcon: Icon(Icons.lock),
                       text: 'Password',
                       isPassword: true,
                       controller: passwordTextController,
                     ),
+                    SizedBox(height: 15,),
                     RoundedButton(
-                      text: 'SignUp',
+                      text: 'Register',
                       press: () async{
                         await signUp(emailTextController.text, passwordTextController.text);
                         createUser(usernameTextController.text);
@@ -59,14 +65,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       color: Colors.blueAccent,
                       textColor: Colors.white,
-                      length: 0.8,
+                      length: 0.9,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        mediumContent(
+                            'Already Have an Account?', Colors.white),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: mediumContent('Login In', Colors.greenAccent),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 36),
                   ],
                 ),
               ),
             ),
-            const Spacer(flex: 3)
+            const Spacer(flex: 1)
           ],
         ),
       ),

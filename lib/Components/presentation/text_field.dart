@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
+  final Icon prefixIcon;
   final String text;
   final bool isPassword;
   final TextEditingController controller;
@@ -8,7 +11,7 @@ class MyTextField extends StatelessWidget {
   const MyTextField({
     super.key,
     required this.text,
-    required this.isPassword, required this.controller, 
+    required this.isPassword, required this.controller, required this.prefixIcon,
   });
 
   @override
@@ -21,18 +24,20 @@ class MyTextField extends StatelessWidget {
           color: Colors.black,
           fontWeight: FontWeight.bold,
           fontSize: 24,
+          decoration: TextDecoration.none
         ),
         obscureText: isPassword,
         //obscuringCharacter: '%',
         decoration: InputDecoration(
+          prefixIcon: prefixIcon,
           filled: true,
             fillColor: Color(0x80ffffff),
             hintText: text,
             hintStyle: const TextStyle(
               color: Colors.black,
               //fontWeight: FontWeight.w500,
-              fontStyle: FontStyle.italic,
-              fontSize: 25.0,
+              fontSize: 20.0,
+                decoration: TextDecoration.none
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20.0),

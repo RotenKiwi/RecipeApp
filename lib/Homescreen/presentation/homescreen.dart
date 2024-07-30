@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:recipe/Profile/profile_screen.dart';
 import 'package:recipe/constants.dart';
 
 import '../../AboutUs/presentation/about_us_page.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       GestureDetector(
                         onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutUsPage()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfileScreen()));
                         },
                         child: const CircleAvatar(
                           radius: 36.0,
@@ -67,6 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
+                      itemCount: 5,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
